@@ -1,0 +1,25 @@
+[package]
+name = "temperature-logger"
+version = "0.1.0"
+authors = ["bjoernQ <bjoern.quentin@mobile-j.de>"]
+edition = "2018"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[dependencies]
+esp-idf-sys = { version = "0.31", features = ["binstart"] }
+esp-idf-svc = "0.39.1"
+esp-idf-hal = "0.35.1"
+embedded-svc = "0.19.0"
+embedded-hal = "0.2"
+anyhow = {version = "1", features = ["backtrace"]}
+
+[build-dependencies]
+embuild = "0.28"
+anyhow = "1"
